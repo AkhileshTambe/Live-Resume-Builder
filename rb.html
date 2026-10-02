@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeForge — Builder</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body class="builder-body text-white">
+
+
+<!-- TOP BAR -->
+
+<header class="no-print sticky top-0 z-50 h-16 border-b border-white/10 bg-[#080d17]/90 backdrop-blur-xl">
+
+    <div class="h-full px-4 lg:px-6 flex items-center justify-between">
+
+        <div class="flex items-center gap-4">
+
+            <a href="index.html"
+               class="text-slate-400 hover:text-white transition text-sm">
+
+                ←
+
+            </a>
+
+            <div class="h-5 w-px bg-white/10"></div>
+
+            <div>
+
+                <div class="font-bold text-sm">
+                    ResumeForge
+                </div>
+
+                <div class="text-[9px] uppercase tracking-widest text-slate-600">
+                    Workspace
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hidden md:flex items-center gap-2">
+
+            <button id="newFileBtn"
+                    class="builder-action">
+
+                New
+
+            </button>
+
+            <button id="saveJsonBtn"
+                    class="builder-action">
+
+                Export JSON
+
+            </button>
+
+            <label class="builder-action cursor-pointer">
+
+                Import JSON
+
+                <input type="file"
+                       id="jsonFileInput"
+                       accept=".json"
+                       class="hidden">
+
+            </label>
+
+            <button id="exportHtmlBtn"
+                    class="builder-action">
+
+                Export HTML
+
+            </button>
+
+            <button onclick="window.print()"
+                    class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-bold">
+
+                Print / PDF
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- BUILDER -->
+
+<div class="builder-shell grid lg:grid-cols-[390px_1fr]">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="builder-sidebar no-print">
+
+        <div class="p-5 space-y-5">
+
+            <!-- TITLE -->
+
+            <div>
+
+                <div class="flex items-center justify-between">
+
+                    <div>
+
+                        <h1 class="font-bold text-lg">
+                            Resume Editor
+                        </h1>
+
+                        <p class="text-xs text-slate-500 mt-1">
+                            Build your resume section by section.
+                        </p>
+
+                    </div>
+
+                    <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                        ✦
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ATS -->
+
+            <div class="ats-card rounded-xl p-4">
+
+                <div class="flex items-center justify-between">
+
+                    <div>
+
+                        <div class="text-[10px] text-slate-500 uppercase tracking-widest">
+                            Resume Health
+                        </div>
+
+                        <div id="ats-score-text"
+                             class="text-xl font-extrabold text-blue-400 mt-1">
+
+                            94 / 100
+
+                        </div>
+
+                    </div>
+
+                    <button id="runAtsBtn"
+                            class="px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-[11px] font-bold">
+
+                        Analyze
+
+                    </button>
+
+                </div>
+
+                <div class="h-1.5 bg-slate-900 rounded-full mt-4 overflow-hidden">
+
+                    <div id="ats-progress"
+                         class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"
+                         style="width:94%">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERSONAL -->
+
+            <section class="builder-section">
+
+                <div class="builder-section-title mb-4">
+                    01 · Personal Information
+                </div>
+
+                <div class="space-y-3">
+
+                    <div>
+                        <label class="form-label">
+                            Full Name
+                        </label>
+
+                        <input id="input-name"
+                               class="form-input"
+                               placeholder="Alex Morgan">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+
+                        <div>
+
+                            <label class="form-label">
+                                Email
+                            </label>
+
+                            <input id="input-email"
+                                   type="email"
+                                   class="form-input"
+                                   placeholder="alex@example.com">
+
+                        </div>
+
+                        <div>
+
+                            <label class="form-label">
+                                Phone
+                            </label>
+
+                            <input id="input-phone"
+                                   class="form-input"
+                                   placeholder="+91 98765 43210">
+
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+
+                        <div>
+
+                            <label class="form-label">
+                                Location
+                            </label>
+
+                            <input id="input-location"
+                                   class="form-input"
+                                   placeholder="Pune, India">
+
+                        </div>
+
+                        <div>
+
+                            <label class="form-label">
+                                Website
+                            </label>
+
+                            <input id="input-website"
+                                   class="form-input"
+                                   placeholder="linkedin.com/in/alex">
+
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <label class="form-label">
+                            Professional Summary
+                        </label>
+
+                        <textarea id="input-summary"
+                                  rows="4"
+                                  class="form-input resize-none"
+                                  placeholder="Write a short professional summary..."></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- EXPERIENCE -->
+
+            <section class="builder-section">
+
+                <div class="flex items-center justify-between mb-4">
+
+                    <div class="builder-section-title">
+                        02 · Experience
+                    </div>
+
+                    <button id="addExperienceBtn"
+                            class="add-button">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+                <div id="experience-fields-container"
+                     class="space-y-3">
+
+                </div>
+
+            </section>
+
+
+            <!-- PROJECTS -->
+
+            <section class="builder-section">
+
+                <div class="flex items-center justify-between mb-4">
+
+                    <div class="builder-section-title">
+                        03 · Projects
+                    </div>
+
+                    <button id="addProjectBtn"
+                            class="add-button">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+                <div id="project-fields-container"
+                     class="space-y-3">
+
+                </div>
+
+            </section>
+
+
+            <!-- EDUCATION -->
+
+            <section class="builder-section">
+
+                <div class="flex items-center justify-between mb-4">
+
+                    <div class="builder-section-title">
+                        04 · Education
+                    </div>
+
+                    <button id="addEducationBtn"
+                            class="add-button">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+                <div id="education-fields-container"
+                     class="space-y-3">
+
+                </div>
+
+            </section>
+
+
+            <!-- SKILLS -->
+
+            <section class="builder-section">
+
+                <div class="builder-section-title mb-4">
+                    05 · Skills
+                </div>
+
+                <input id="input-skills"
+                       class="form-input"
+                       placeholder="React, Python, SQL, AWS...">
+
+                <p class="text-[10px] text-slate-600 mt-2">
+                    Separate each skill with a comma.
+                </p>
+
+            </section>
+
+
+            <!-- STYLE -->
+
+            <section class="builder-section">
+
+                <div class="builder-section-title mb-4">
+                    06 · Appearance
+                </div>
+
+                <div class="space-y-3">
+
+                    <div>
+
+                        <label class="form-label">
+                            Color Theme
+                        </label>
+
+                        <select id="select-theme"
+                                class="form-input">
+
+                            <option value="navy">
+                                Executive Navy
+                            </option>
+
+                            <option value="slate">
+                                Modern Slate
+                            </option>
+
+                            <option value="sapphire">
+                                Electric Sapphire
+                            </option>
+
+                            <option value="forest">
+                                Emerald Forest
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="form-label">
+                            Typography
+                        </label>
+
+                        <select id="select-font"
+                                class="form-input">
+
+                            <option value="sans">
+                                Inter
+                            </option>
+
+                            <option value="serif">
+                                Playfair Display
+                            </option>
+
+                            <option value="mono">
+                                JetBrains Mono
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="form-label">
+                            Document Density
+                        </label>
+
+                        <select id="select-spacing"
+                                class="form-input">
+
+                            <option value="comfortable">
+                                Comfortable
+                            </option>
+
+                            <option value="compact">
+                                Compact
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </aside>
+
+
+    <!-- PREVIEW -->
+
+    <main class="preview-area min-w-0">
+
+        <div class="p-5 lg:p-10 flex justify-center">
+
+            <div id="resume-preview-canvas"
+                 class="resume-paper-live p-12">
+
+                <!-- HEADER -->
+
+                <header class="border-b-2 border-slate-900 pb-5 mb-7">
+
+                    <div class="flex justify-between gap-8">
+
+                        <div>
+
+                            <h1 id="preview-name"
+                                class="text-4xl font-extrabold tracking-tight">
+
+                                Alex Morgan
+
+                            </h1>
+
+                            <p class="text-xs text-slate-500 mt-2">
+                                Software Engineer
+                            </p>
+
+                        </div>
+
+                        <div id="preview-contact"
+                             class="text-right text-[10px] leading-5 text-slate-500">
+
+                            <div id="prev-email">
+                                alex@example.com
+                            </div>
+
+                            <div id="prev-phone">
+                                +91 98765 43210
+                            </div>
+
+                            <div id="prev-location">
+                                Pune, India
+                            </div>
+
+                            <div id="prev-website">
+                                linkedin.com/in/alex
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </header>
+
+
+                <!-- SUMMARY -->
+
+                <section id="canvas-summary-block"
+                         class="mb-7">
+
+                    <h2 id="heading-summary-title"
+                        class="resume-heading-live">
+
+                        Profile
+
+                    </h2>
+
+                    <p id="preview-summary"
+                       class="text-xs leading-6 text-slate-600">
+
+                        Senior software engineer specializing in scalable
+                        web applications and modern frontend systems.
+
+                    </p>
+
+                </section>
+
+
+                <!-- EXPERIENCE -->
+
+                <section id="canvas-exp-block"
+                         class="mb-7">
+
+                    <h2 id="heading-exp-title"
+                        class="resume-heading-live">
+
+                        Experience
+
+                    </h2>
+
+                    <div id="preview-experience-list"
+                         class="space-y-5">
+
+                    </div>
+
+                </section>
+
+
+                <!-- PROJECTS -->
+
+                <section id="canvas-proj-block"
+                         class="mb-7">
+
+                    <h2 id="heading-proj-title"
+                        class="resume-heading-live">
+
+                        Selected Projects
+
+                    </h2>
+
+                    <div id="preview-project-list"
+                         class="space-y-4">
+
+                    </div>
+
+                </section>
+
+
+                <!-- EDUCATION -->
+
+                <section id="canvas-edu-block"
+                         class="mb-7">
+
+                    <h2 id="heading-edu-title"
+                        class="resume-heading-live">
+
+                        Education
+
+                    </h2>
+
+                    <div id="preview-education-list"
+                         class="space-y-3">
+
+                    </div>
+
+                </section>
+
+
+                <!-- SKILLS -->
+
+                <section id="canvas-skills-block">
+
+                    <h2 id="heading-skills-title"
+                        class="resume-heading-live">
+
+                        Skills
+
+                    </h2>
+
+                    <div id="preview-skills-container"
+                         class="flex flex-wrap gap-2">
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

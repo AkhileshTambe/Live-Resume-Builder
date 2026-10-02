@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeForge — AI Resume Builder</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-[#070b14] text-white">
+
+<!-- NAVBAR -->
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#070b14]/80 backdrop-blur-xl">
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+
+        <a href="index.html" class="flex items-center gap-3">
+
+            <div class="logo-box">
+                <span>R</span>
+            </div>
+
+            <div>
+                <div class="font-bold tracking-tight">
+                    Resume<span class="text-blue-400">Forge</span>
+                </div>
+
+                <div class="text-[10px] text-slate-500 uppercase tracking-[0.2em]">
+                    Resume Studio
+                </div>
+            </div>
+
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+
+            <a href="#features" class="nav-link">
+                Features
+            </a>
+
+            <a href="#workflow" class="nav-link">
+                How it works
+            </a>
+
+            <a href="rb.html" class="nav-link">
+                Builder
+            </a>
+
+        </nav>
+
+        <a href="rb.html"
+           class="primary-button hidden sm:flex">
+
+            Open Builder
+            <span>→</span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<main>
+
+<section class="relative min-h-screen flex items-center pt-28 overflow-hidden">
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full relative z-10">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- LEFT -->
+
+            <div>
+
+                <div class="status-pill mb-7">
+
+                    <span class="status-dot"></span>
+
+                    No account required
+
+                </div>
+
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] leading-[1.02]">
+
+                    Build a resume
+                    <span class="gradient-text">
+                        that gets noticed.
+                    </span>
+
+                </h1>
+
+                <p class="mt-7 max-w-xl text-lg leading-8 text-slate-400">
+
+                    Create a professional, ATS-friendly resume with a live preview,
+                    smart formatting, project sections and instant export tools.
+
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 mt-9">
+
+                    <a href="rb.html"
+                       class="primary-button justify-center">
+
+                        Start Building
+
+                        <span>↗</span>
+
+                    </a>
+
+                    <a href="#features"
+                       class="secondary-button justify-center">
+
+                        Explore Features
+
+                    </a>
+
+                </div>
+
+                <div class="flex flex-wrap gap-6 mt-8 text-xs text-slate-500">
+
+                    <span>✓ Live Preview</span>
+                    <span>✓ JSON Backup</span>
+                    <span>✓ PDF Export</span>
+                    <span>✓ ATS Analysis</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT PREVIEW -->
+
+            <div class="relative">
+
+                <div class="dashboard-glow"></div>
+
+                <div class="dashboard-window">
+
+                    <div class="dashboard-toolbar">
+
+                        <div class="flex gap-2">
+
+                            <span class="window-dot bg-red-400"></span>
+                            <span class="window-dot bg-yellow-400"></span>
+                            <span class="window-dot bg-green-400"></span>
+
+                        </div>
+
+                        <span class="font-mono text-[10px] text-slate-600">
+                            resume-forge.workspace
+                        </span>
+
+                        <div class="w-12"></div>
+
+                    </div>
+
+
+                    <div class="grid grid-cols-[145px_1fr] min-h-[470px]">
+
+                        <!-- MOCK SIDEBAR -->
+
+                        <div class="border-r border-white/5 p-4 bg-[#0a0f1b]">
+
+                            <div class="text-[9px] uppercase tracking-widest text-slate-600 mb-4">
+                                Resume
+                            </div>
+
+                            <div class="mock-menu active">
+                                <span>◈</span>
+                                Personal
+                            </div>
+
+                            <div class="mock-menu">
+                                <span>▤</span>
+                                Experience
+                            </div>
+
+                            <div class="mock-menu">
+                                <span>◇</span>
+                                Projects
+                            </div>
+
+                            <div class="mock-menu">
+                                <span>◎</span>
+                                Education
+                            </div>
+
+                            <div class="mock-menu">
+                                <span>✦</span>
+                                Skills
+                            </div>
+
+                            <div class="mt-8 p-3 rounded-xl bg-blue-500/10 border border-blue-500/20">
+
+                                <div class="text-[9px] text-blue-300">
+                                    ATS SCORE
+                                </div>
+
+                                <div class="text-2xl font-bold mt-1">
+                                    94
+                                </div>
+
+                                <div class="text-[8px] text-slate-500">
+                                    / 100
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MOCK RESUME -->
+
+                        <div class="bg-[#101827] p-7">
+
+                            <div class="resume-paper">
+
+                                <div class="h-2 w-24 bg-blue-600 rounded mb-3"></div>
+
+                                <div class="h-4 w-44 bg-slate-900 rounded"></div>
+
+                                <div class="h-2 w-60 bg-slate-200 rounded mt-2"></div>
+
+                                <div class="flex gap-2 mt-4">
+
+                                    <div class="h-1.5 w-16 bg-slate-200 rounded"></div>
+                                    <div class="h-1.5 w-20 bg-slate-200 rounded"></div>
+                                    <div class="h-1.5 w-14 bg-slate-200 rounded"></div>
+
+                                </div>
+
+                                <div class="resume-line"></div>
+
+                                <div class="resume-heading">
+                                    EXPERIENCE
+                                </div>
+
+                                <div class="h-2 w-48 bg-slate-800 rounded"></div>
+
+                                <div class="h-1.5 w-full bg-slate-200 rounded mt-2"></div>
+                                <div class="h-1.5 w-11/12 bg-slate-200 rounded mt-2"></div>
+                                <div class="h-1.5 w-9/12 bg-slate-200 rounded mt-2"></div>
+
+                                <div class="resume-heading mt-7">
+                                    PROJECTS
+                                </div>
+
+                                <div class="h-2 w-40 bg-slate-800 rounded"></div>
+
+                                <div class="h-1.5 w-full bg-slate-200 rounded mt-2"></div>
+                                <div class="h-1.5 w-10/12 bg-slate-200 rounded mt-2"></div>
+
+                                <div class="resume-heading mt-7">
+                                    SKILLS
+                                </div>
+
+                                <div class="flex gap-2 mt-2">
+
+                                    <span class="skill-mini">React</span>
+                                    <span class="skill-mini">Python</span>
+                                    <span class="skill-mini">AWS</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section id="features" class="py-28 border-t border-white/5">
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+        <div class="max-w-2xl mb-14">
+
+            <div class="section-label">
+                FEATURES
+            </div>
+
+            <h2 class="text-4xl font-bold mt-3 tracking-tight">
+                Everything you need in one workspace.
+            </h2>
+
+            <p class="text-slate-400 mt-4">
+                A simple interface designed to make resume creation fast,
+                visual and easy to understand.
+            </p>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <div class="feature-card">
+                <div class="feature-icon blue">✦</div>
+
+                <h3>Live Resume Preview</h3>
+
+                <p>
+                    Every change you make appears immediately in the professional
+                    resume canvas.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon purple">◎</div>
+
+                <h3>ATS Analysis</h3>
+
+                <p>
+                    Simulate an ATS scan and receive a simple resume quality score.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon cyan">◇</div>
+
+                <h3>Project Showcase</h3>
+
+                <p>
+                    Highlight your academic and personal projects with technology,
+                    links and descriptions.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon green">✓</div>
+
+                <h3>JSON Backup</h3>
+
+                <p>
+                    Export your resume data and import it again whenever you need.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon orange">↗</div>
+
+                <h3>Instant PDF</h3>
+
+                <p>
+                    Print the finished resume directly from your browser as a PDF.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon pink">Aa</div>
+
+                <h3>Custom Styling</h3>
+
+                <p>
+                    Change colors, typography and spacing without touching code.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WORKFLOW -->
+
+<section id="workflow" class="py-28 bg-[#0a0f19] border-y border-white/5">
+
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+        <div class="text-center max-w-2xl mx-auto">
+
+            <div class="section-label">
+                SIMPLE WORKFLOW
+            </div>
+
+            <h2 class="text-4xl font-bold mt-3">
+                From blank page to resume.
+            </h2>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-3 gap-6 mt-16">
+
+            <div class="step-card">
+
+                <span>01</span>
+
+                <h3>Enter your details</h3>
+
+                <p>
+                    Add your personal information, experience, education,
+                    projects and skills.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <span>02</span>
+
+                <h3>Customize</h3>
+
+                <p>
+                    Pick your preferred theme, font and document spacing.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <span>03</span>
+
+                <h3>Export</h3>
+
+                <p>
+                    Save your data, export HTML or print your finished resume.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="text-center mt-14">
+
+            <a href="rb.html" class="primary-button inline-flex">
+                Open Resume Builder →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="border-t border-white/5 py-8">
+
+    <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-4 text-xs text-slate-500">
+
+        <span>
+            © 2026 ResumeForge
+        </span>
+
+        <span>
+            Mini Project • Resume Builder Suite
+        </span>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
